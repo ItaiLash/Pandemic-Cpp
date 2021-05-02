@@ -35,3 +35,7 @@ Player& Player::discover_cure(Color c){
 Player& Player::treat(City c){
     return *this;
 }
+
+std::string Player::role(){
+    return "";
+}

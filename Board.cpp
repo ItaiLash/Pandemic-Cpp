@@ -64,7 +64,7 @@ bool Board::is_clean() {
     return false;
 }
 
-ostream& operator<<(ostream& out, const Board& b){
+ostream& pandemic::operator<<(ostream& out, const Board& b){
     return out;
 }
     
