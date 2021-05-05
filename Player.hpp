@@ -15,7 +15,7 @@ namespace pandemic {
             string player_role;
 
         public:
-            Player(Board& b, City c, string r): game_board(b), current_city(c), player_role(r){}
+            Player(Board& b, City c, string r = "Player"): game_board(b), current_city(c), player_role(r) {}
             Player& drive(City c);
             virtual Player& fly_direct(City c);
             Player& fly_charter(City c);

@@ -28,6 +28,14 @@ namespace pandemic {
             return disease_cubes;
         }
 
+        Color& get_color(){
+            return color;
+        }
+
+        bool there_is_stations(){
+            return stations;
+        }
+
 
         std::map<City, std::set<City>> connections {
             { Algiers, {Madrid, Paris, Istanbul, Cairo } },
