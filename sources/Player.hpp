@@ -25,6 +25,8 @@ namespace pandemic {
             virtual Player& treat(City c);
             Player& take_card(City c);
             string role();
+            int count_cards(Color c);
+            int count_cards(City c);
     };
 
 }
