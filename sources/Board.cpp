@@ -57,15 +57,48 @@ void Board::init_world_map(){
 }
 
 int& Board::operator[](City c) {
-return Board::world_map[c].get_disease_cubes();
+    return Board::world_map[c].get_disease_cubes();
 }
 
 bool Board::is_clean() {
-    return false;
+    for (auto& kv : world_map) {
+        if(kv.second.get_disease_cubes() > 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
-ostream& pandemic::operator<<(ostream& out, const Board& b){
+void Board::remove_cures() {
+    for (auto& kv : discoverd_cure) {
+        kv.second = false;
+    }
+}
+
+
+void Board::cured(Color c){
+    discoverd_cure[c] = true;
+}
+
+
+std::ostream& pandemic::operator<<(std::ostream& out, const Board& b) {
+    out << "-------------------------------------------------" << endl;
+    out << "Disease level:" << endl;
+    for(auto& kv: b.world_map) {
+        out << "\t" << cities_names[kv.first] << ": \t\t" << kv.second.disease_cubes << endl;
+    }
+    out << "Cure discovered:" << endl;
+    for(const auto& kv: b.discoverd_cure) {
+        if(kv.second){
+            out << "\t" << colors_as_string[kv.first] << endl;
+        }
+    }
+    out << "Research stations:" << endl;
+    for(const auto& kv: b.world_map) {
+        if(kv.second.there_is_stations()){
+            out << "\t" << cities_names[kv.first] << endl;
+        }
+    }
+    out << "-------------------------------------------------" << endl;
     return out;
 }
-    
-
