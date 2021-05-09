@@ -9,13 +9,12 @@ namespace pandemic {
         Yellow,
     };
 
-    // inline std::string color_string(int c) {
-
-    //     if(c == 0) { return "Black"; }
-    //     if(c == 1) { return "Blue"; }
-    //     if(c == 2) { return "Red"; }
-    //     else { return "Yellow"; }
-    // }
+    static std::map<const Color, const std::string> colors_as_string {
+        {Color::Black, "Black"},
+        {Color::Blue, "Blue"},
+        {Color::Red , "Red"},
+        {Color::Yellow, "Yellow"}
+        };
 
     static std::map<City, Color> cities_colors {
         { City::Algiers, Color::Black },

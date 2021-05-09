@@ -8,34 +8,56 @@ namespace pandemic {
 
     class CityInfo {
 
-        City city;
-        std::string name;
-        std::set<City> neighber;
+    public:
+        const City city;
+        const std::string name;
+        const std::set<City> neighber;
         int disease_cubes;
         bool stations;
-        Color color;
+        const Color color;
 
     public:
 
         CityInfo(const City c) : city(c), color(cities_colors[city]), name(cities_names[city]), disease_cubes(0),stations(false) {}
-        CityInfo() {}
+        ~CityInfo() {}
 
         std::set<City> get_neighbors(){
             return connections[city];
+        }
+
+        bool is_neighbor(City c){
+            bool flag = false;
+            for(City current : connections[c]){
+                if(current == c){
+                    flag = true;
+                }
+            }
+            return flag;
+        }
+
+        City get_city(){
+            return city;
         }
 
         int& get_disease_cubes(){
             return disease_cubes;
         }
 
-        Color& get_color(){
+        void increase_disease_cubes(){
+            disease_cubes++;
+        }
+
+        void decrease_disease_cubes(){
+            disease_cubes++;
+        }
+
+        Color get_color(){
             return color;
         }
 
-        bool there_is_stations(){
+        bool there_is_stations() const{
             return stations;
         }
-
 
         std::map<City, std::set<City>> connections {
             { Algiers, {Madrid, Paris, Istanbul, Cairo } },
