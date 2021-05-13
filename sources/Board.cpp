@@ -57,7 +57,7 @@ void Board::init_world_map(){
 }
 
 int& Board::operator[](City c) {
-    return Board::world_map[c].disease_cubes;
+    return Board::world_map[c].get_disease_cubes();
 }
 
 bool Board::is_clean() {
