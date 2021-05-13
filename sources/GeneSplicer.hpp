@@ -11,6 +11,9 @@ namespace pandemic{
         public:
             GeneSplicer(Board& b, City c): Player(b, c, "GeneSplicer") {}
             Player& discover_cure(Color c) override;
+
+        private:
+            void erase_any_five_cards();
     };
     
 }

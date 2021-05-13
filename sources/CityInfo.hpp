@@ -17,7 +17,7 @@ namespace pandemic {
         const Color color;
 
     public:
-
+        CityInfo() : CityInfo(City::Cairo){};
         CityInfo(const City c) : city(c), color(cities_colors[city]), name(cities_names[city]), disease_cubes(0),stations(false) {}
         ~CityInfo() {}
 
@@ -27,7 +27,7 @@ namespace pandemic {
 
         bool is_neighbor(City c){
             bool flag = false;
-            for(City current : connections[c]){
+            for(City current : connections[city]){
                 if(current == c){
                     flag = true;
                 }
@@ -86,7 +86,7 @@ namespace pandemic {
             { London, {NewYork, Madrid, Essen, Paris } },
             { LosAngeles, {SanFrancisco, Chicago, MexicoCity, Sydney } },
             { Madrid, {London, NewYork, Paris, SaoPaulo, Algiers } },
-            { Manila, {Taipei, SanFrancisco, HoChiMinhCity, Sydney } },
+            { Manila, {Taipei, SanFrancisco, HoChiMinhCity, Sydney, HongKong } },
             { MexicoCity, {LosAngeles, Chicago, Miami, Lima, Bogota } },
             { Miami, {Atlanta, MexicoCity, Washington, Bogota } },
             { Milan, {Essen, Paris, Istanbul } },

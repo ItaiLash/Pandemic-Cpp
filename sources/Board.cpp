@@ -57,7 +57,7 @@ void Board::init_world_map(){
 }
 
 int& Board::operator[](City c) {
-    return Board::world_map[c].get_disease_cubes();
+    return Board::world_map[c].disease_cubes;
 }
 
 bool Board::is_clean() {
@@ -84,7 +84,7 @@ void Board::cured(Color c){
 std::ostream& pandemic::operator<<(std::ostream& out, const Board& b) {
     out << "-------------------------------------------------" << endl;
     out << "Disease level:" << endl;
-    for(auto& kv: b.world_map) {
+    for(const auto& kv: b.world_map) {
         out << "\t" << cities_names[kv.first] << ": \t\t" << kv.second.disease_cubes << endl;
     }
     out << "Cure discovered:" << endl;
