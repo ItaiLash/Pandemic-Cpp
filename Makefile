@@ -29,6 +29,8 @@ test3: TestRunner.o StudentTest3.o  $(OBJECTS)
 demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
+main:  $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@

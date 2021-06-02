@@ -15,7 +15,7 @@ Player& Player::drive(City c){
         throw invalid_argument{"You already in " + cities_names[current_city]};
     }
     if(!game_board.world_map[current_city].is_neighbor(c)){
-        throw invalid_argument{"Yoy can't drive to " + cities_names[current_city] + " because it is not connected to " + cities_names[c]};
+        throw invalid_argument{"Yoy can't drive to " + cities_names[c] + " because it is not connected to " + cities_names[current_city]};
     }
     current_city = c;
     return *this;
@@ -115,7 +115,7 @@ int Player::count_cards(Color c){
 void Player::erase_cards(int n, Color c){
     int count = 1;
     for(auto iter = cards.begin(); iter != cards.end(); count++){
-        if(count == CARDS_TO_CURE) { 
+        if(count == n) { 
             break; 
         }
         if(cities_colors[*iter] == c) {

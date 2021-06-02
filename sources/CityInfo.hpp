@@ -17,8 +17,8 @@ namespace pandemic {
         const Color color;
 
     public:
-        CityInfo() : CityInfo(City::Cairo){};
-        CityInfo(const City c) : city(c), color(cities_colors[city]), name(cities_names[city]), disease_cubes(0),stations(false) {}
+        CityInfo() : CityInfo(City::Algiers){};
+        CityInfo(const City c) : city(c), color(cities_colors[c]), name(cities_names[c]), disease_cubes(0),stations(false) {}
         ~CityInfo() {}
 
         std::set<City> get_neighbors(){

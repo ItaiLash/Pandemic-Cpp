@@ -25,7 +25,7 @@ namespace pandemic {
             virtual Player& treat(City c);
             Player& take_card(City c);
             string role();
-
+            set<City> get_cards(){return cards;}
         protected:
             int count_cards(Color c);
             void erase_cards(int n, Color c);
